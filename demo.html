@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <style>
+        /*第四屏*/
+        .four{
+            overflow: hidden;
+        }
+        .four-title{
+            width: 100%;
+            height: 100px;
+            margin-left: 80px;
+            color: rgba(255,255,255,1);
+            background-color: #000;
+            font-size: 60px;
+            margin-top: 50px;
+
+        }
+        .model1, .model2{
+            height: 100%;
+            width: 100%;
+            margin: 10px 100px;
+            overflow: hidden;
+            text-align: center;
+        }
+        .model1 .title,.model2 .title{
+            width: 100%;
+            height: 30px;
+            color:black;
+            margin: 0 auto  10px;
+            font-size: 30px;
+            text-align: center;
+
+        }
+        .model1 .img,.model2 .img{
+            width: 262px;
+            height: 416px;
+            text-align: center;
+            margin: 0  auto;
+            background-position: center;
+            background-repeat: no-repeat;
+
+        }
+        .jc-slider2{
+            width: 100%;
+            height: 100%;
+
+        }
+        .jc-slider2 .jc-animation{
+            width: 100%;
+            height: 100%;
+        }
+        .model1 .four-x .img{
+            background-image: url("images/compare_iphoneX_silver_large.jpg");
+        }
+        .model1 .four-8plus .img{
+            background-image: url("images/compare_iphone8plus_silver_large.jpg");
+        }
+        .model1 .four-8 .img{
+            background-image: url("images/compare_iphone8_silver_large.jpg");
+        }
+        .model2 .four-7plus .img{
+            background-image: url("images/compare_iphone7plus_black_large.jpg");
+        }
+        .model2 .four-7 .img{
+            background-image: url("images/compare_iphone7_black_large.jpg");
+        }
+        .model2 .four-6plus .img{
+            background-image: url("images/compare_iphone6splus_spacegray_large.jpg");
+        }
+        .model1 .color,.model2 .color{
+            width: 100%;
+            height: 50px;
+            bottom: 10px;
+            text-align: center;
+            position: absolute;
+            background-color: rgba(255,255,255,0.5);
+        }
+        .four-current{
+            border: 2px solid #2f8ad3;
+        }
+        .model1 .color ul,.model2 .color ul{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            line-height: 70px;
+            margin: 0 auto;
+        }
+        .model1 .color li,.model2 .color li{
+            width: 50px;
+            height: 50px;
+            margin-left: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        .model1 .color li a,.model2 .color li a{
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .four-x .color ul li:nth-child(1) a{
+            background-color: silver;
+        }
+        .four-x .color ul li:nth-child(2) a{
+            background-color: black;
+        }
+        .four-8plus .color ul li:nth-child(1) a{
+            background-color:silver;
+        }
+        .four-8plus .color ul li:nth-child(2) a{
+            background-color:black;
+        }
+        .four-8plus .color ul li:nth-child(3) a{
+            background-color:gold;
+        }
+        .four-8 .color ul li:nth-child(1) a{
+            background-color:silver;
+        }
+        .four-8 .color ul li:nth-child(2) a{
+            background-color:black;
+        }
+        .four-8 .color ul li:nth-child(3) a{
+            background-color:gold;
+        }
+        .four-7plus .color ul li:nth-child(1) a{
+            background-color:black;
+        }
+        .four-7plus .color ul li:nth-child(2) a{
+            background-color:silver;
+        }
+        .four-7plus .color ul li:nth-child(3) a{
+            background-color:gold;
+        }
+        .four-7plus .color ul li:nth-child(4) a{
+            background-color:lightpink;
+        }
+        .four-7 .color ul li:nth-child(1) a{
+            background-color:black;
+        }
+        .four-7 .color ul li:nth-child(2) a{
+            background-color:silver;
+        }
+        .four-7 .color ul li:nth-child(3) a{
+            background-color:gold;
+        }
+        .four-7 .color ul li:nth-child(4) a{
+            background-color:lightpink;
+        }
+        .four-6plus .color ul li:nth-child(1) a{
+            background-color: black;
+        }
+        .four-6plus .color ul li:nth-child(2) a{
+            background-color: silver;
+        }
+        .four-6plus .color ul li:nth-child(3) a{
+            background-color: gold;
+        }
+        .four-6plus .color ul li:nth-child(4) a{
+            background-color: lightpink;
+        }
+        .four-x,.four-8plus,.four-8,.four-7plus,.four-7,.four-6plus{
+            position: relative;
+            width: 400px;
+            height: 550px;
+            float: left;
+            background-color: #fff;
+            margin: 0  100px;
+            text-align: center;
+            border: 5px solid #000;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="dowebok">
+    <div class="section first" id="first">
+        <!--logo与导航-->
+        <div class="header clearfix">
+            <div class="header-logo">
+                <h1>Home..</h1>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#two">iPhone XR</a></li>
+                    <li><a href="#three">iPhone XS</a></li>
+                    <li><a href="#four">更多型号</a></li>
+                    <li><a href="#five">其他</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--slider-->
+        <ul class="jc-slider">
+            <li class="jc-animation"><div class="iphone-xr">
+                <div class="slider-txt">
+                    <img src="images/iphone_xr_logo_hero_9d70d_large.png" alt="">
+                    <br/><br/>
+                    <span>哪一面都是亮点。</span>
+                </div>
+                <div class="slider-img">
+                    <img src="images/iphone_xr_5e40f_large.jpg" alt="">
+                </div>
+                <div class="slider-buy-xr">
+                    <a href=""><span>BUY NOW</span></a>
+                </div>
+            </div></li>
+            <li class="jc-animation"><div class="iphone-xs">
+                <div class="slider-txt">
+                    <img src="images/iphone_xs_logo_hero_a5d05_large.png" alt="">
+                    <br/><br/>
+                    <span>大屏幕上见。</span>
+                </div>
+                <div class="slider-img">
+                    <img src="images/iphone_xs_0afef_large.jpg" alt="">
+                </div>
+                <div class="slider-buy-xs">
+                    <a href=""><span>BUY NOW</span></a>
+                </div>
+            </div></li>
+        </ul>
+        <script>
+            $(document).ready(function(){
+                $('.jc-slider').jcSlider({
+                    animationIn     : "bounceInRight",
+                    animationOut    : "bounceOutLeft",
+                    stopOnHover     : true, // true by default
+                    loop            : true // true by default
+                });
+            });
+        </script>
+        <div class="slider-btn">
+            <a href=""><div class="btn-left">&lt;</div></a>
+            <a href=""><div class="btn-right">&gt;</div></a>
+        </div>
+        <div class="next"><a href="#two"><img src="images/next%20page.png" alt=""/></a>
+        </div>
+    </div>
+    <div class="section two" id="two">
+        <div class="two-header">
+            <div class="logo"><img src="images/iphone_xr_logo_hero_9d70d_large.png" alt=""></div>
+            <div class="header-text-xr">
+                <span>
+                哪一面都是亮点。
+            </span>
+            </div>
+        </div>
+        <div class="two-img"><img src="images/-1.fw.png" alt=""></div>
+        <div class="line1"></div>
+        <div class="left-tip">
+            <p>Liquid 视网膜显示屏</p>
+                来见识一下 iPhone 上最先进的 LCD 显示屏。<br/>
+            6.1 英寸Liquid 视网膜<br/>
+            LCD 显示屏1<br/>
+            1792×828分辨率<br/>
+            326ppi<br/>
+            全新设计的 Liquid 视网膜显示屏。
+            工艺上的创新，让我们能够将显示屏一直延伸到机身边角，从而实现全面屏的设计。这款 iPhone 迄今最大的 LCD 显示屏，拿起来依然舒适称手。
+        </div>
+        <div class="line2"></div>
+        <div class="right-tip">
+            <p>
+                先进的摄像头系统
+                笑一个，迎接摄影新纪元。
+            </p>
+            传感器、处理器、算法，再加上你，就是一个好团队。<br/>
+            创新的摄像头系统整合了图像信号处理器、神经网络引擎和先进的算法，释放了新的创造力，助你拍出令人叫绝的好照片。<br/>
+            优化的人像模式自拍。
+            原深感摄像头可生成精确的深度图，在虚化背景的同时让你保持清晰对焦。<br>
+            万亿次运算，成就每一个瞬间。
+            iPhone XR 的摄像头系统能够充分利用神经网络引擎的强大动力，及其每秒五万亿次的运算能力。再加上 Apple 设计的图像信号处理器，它仿佛就是一位反应机敏的摄影助理，帮助你拍出一张张引人瞩目的佳作。
+        </div>
+        <div class="right-bottom-tip">
+            <div class="tip1">
+                <figure class="battery"></figure>
+                <p>满足一天所需的电池续航力。</p>
+                当软件团队在制作各种功能时，会根据对处理器的使用来定制算法，以优化性能和能效，反之亦然*。
+            </div>
+            <div class="tip2">
+                <figure class="pay"></figure>
+                <p>简单易用的 Apple Pay。</p>
+                双击侧边按钮即可直接开启面容 ID 系统并确认支付。如此简单便捷的体验，也是经过软硬件协同设计才得以实现。
+            </div>
+            <div class="tip3">
+                <figure class="ar"></figure>
+                <p>令人耳目一新的增强现实。</p>
+                Phone 将先进的摄像头感光元件、陀螺仪、图像信号处理器、神经网络引擎以及快速的平面检测集于一身，构建出一个出色的增强现实平台。
+            </div>
+        </div>
+    </div>
+    <div class="section three " id="three">
+        <div class="three-img">
+            <div class="img1"><img src="images/hero_top_device_large1.jpg" alt=""></div>
+            <div class="img2"><img src="images/hero_bottom_device_large.jpg" alt=""></div>
+        </div>
+        <div class="three-icon-left">
+            <a href="#">
+       <div class="left-img"></div>
+                <p>显示屏</p>
+            </a>
+        </div>
+        <div class="three-icon-right">
+            <a href="#">
+               <div class="right-img"></div>
+                <p>面容ID</p>
+            </a>
+        </div>
+        <div class="three-icon-bottom">
+            <ul>
+                <li><a href="#">
+                    <div class="bottom-img1"></div>
+                    <p>A12仿生</p>
+                </a></li>
+                <li><a href="#">
+                    <div class="bottom-img2"></div>
+                    <p>摄像头</p>
+                </a></li>
+                <li><a href="#">
+                    <div class="bottom-img3"></div>
+                    <p>iPhone独到之处</p>
+                </a></li>
+                <li><a href="#">
+                    <div class="bottom-img4"></div>
+                    <p>技术规格</p>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section four" id="four">
+        <div class="four-title">更多型号</div>
+        <ul class="jc-slider2">
+        <li class="jc-animation"><div class="model1">
+        <div class="four-x">
+            <div class="title">iPhone X</div>
+            <div class="img" id="four-x-img"></div>
+            <div class="color">
+                <ul>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+         <div class="four-8plus">
+                <div class="title">iPhone 8 Plus</div>
+                <div class="img" id="four-8plus"></div>
+                <div class="color">
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+         <div class="four-8">
+                <div class="title">iPhone 8</div>
+                <div class="img" id="four-8"></div>
+                <div class="color">
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div></li>
+        <li class="jc-animation"><div class="model2">
+            <div class="four-7plus">
+                <div class="title">iPhone 7 Plus</div>
+                <div class="img" id="four-7plus"></div>
+                <div class="color">
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="four-7">
+                <div class="title">iPhone 7</div>
+                <div class="img" id="four-7"></div>
+                <div class="color">
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="four-6plus">
+                <div class="title">iPhone 6 Plus</div>
+                <div class="img" id="four-6plus"></div>
+                <div class="color">
+                    <ul>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div></li>
+        </ul>
+        <script>
+            $(function () {
+                $('.jc-slider2').jcSlider({
+                    animationIn     : "bounceInRight",
+                    animationOut    : "bounceOutLeft",
+                    stopOnHover     : true, // true by default
+                    loop            : true // true by default
+                });
+                //切换颜色
+                //iphonex
+                $('.four-x  li:eq(0) a').click(function () {
+                    $('#four-x-img').css('backgroundImage','url("images/compare_iphoneX_silver_large.jpg")');
+                    $('.four-x  li:eq(0)').siblings().removeClass();
+                    $('.four-x  li:eq(0)').addClass('four-current');
+                });
+                $('.four-x li:eq(1) a').click(function () {
+                    $('#four-x-img').css('backgroundImage','url("images/compare_iphoneX_spacegray_large.jpg")');
+                    $('.four-x li:eq(1)').siblings().removeClass();
+                    $('.four-x li:eq(1)').addClass('four-current');
+                });
+            //    iphone8p
+                $('.four-8plus li:eq(0) a').click(function () {
+                    $('#four-8plus').css('backgroundImage','url("images/compare_iphone8plus_silver_large.jpg")');
+                    $('.four-8plus  li:eq(0)').siblings().removeClass();
+                    $('.four-8plus  li:eq(0)').addClass('four-current');
+                });
+                $('.four-8plus li:eq(1) a').click(function () {
+                    $('#four-8plus').css('backgroundImage','url("images/compare_iphone8plus_spacegray_large.jpg")')
+                    $('.four-8plus  li:eq(1)').siblings().removeClass();
+                    $('.four-8plus  li:eq(1)').addClass('four-current');
+                });
+                $('.four-8plus li:eq(2) a').click(function () {
+                    $('#four-8plus').css('backgroundImage','url("images/compare_iphone8plus_gold_large.jpg")')
+                    $('.four-8plus  li:eq(2)').siblings().removeClass();
+                    $('.four-8plus  li:eq(2)').addClass('four-current');
+                });
+            //    iphone8
+                $('.four-8 li:eq(0) a').click(function () {
+                    $('#four-8').css('backgroundImage','url("images/compare_iphone8_silver_large.jpg")');
+                    $('.four-8  li:eq(0)').siblings().removeClass();
+                    $('.four-8  li:eq(0)').addClass('four-current');
+                });
+                $('.four-8 li:eq(1) a').click(function () {
+                    $('#four-8').css('backgroundImage','url("images/compare_iphone8_spacegray_large.jpg")');
+                    $('.four-8  li:eq(1)').siblings().removeClass();
+                    $('.four-8  li:eq(1)').addClass('four-current');
+                })
+                $('.four-8 li:eq(2) a').click(function () {
+                    $('#four-8').css('backgroundImage','url("images/compare_iphone8_gold_large.jpg")');
+                    $('.four-8  li:eq(2)').siblings().removeClass();
+                    $('.four-8  li:eq(2)').addClass('four-current');
+                })
+            //    iphone7p
+                $('.four-7plus li:eq(0) a').click(function () {
+                    $('#four-7plus').css('backgroundImage','url("images/compare_iphone7plus_black_large.jpg")');
+                    $('.four-7plus  li:eq(0)').siblings().removeClass();
+                    $('.four-7plus  li:eq(0)').addClass('four-current');
+                });
+                $('.four-7plus li:eq(1) a').click(function () {
+                    $('#four-7plus').css('backgroundImage','url("images/compare_iphone7plus_silver_large.jpg")');
+                    $('.four-7plus  li:eq(1)').siblings().removeClass();
+                    $('.four-7plus  li:eq(1)').addClass('four-current');
+                })
+                $('.four-7plus li:eq(2) a').click(function () {
+                    $('#four-7plus').css('backgroundImage','url("images/compare_iphone7plus_gold_large.jpg")');
+                    $('.four-7plus  li:eq(2)').siblings().removeClass();
+                    $('.four-7plus  li:eq(2)').addClass('four-current');
+                })
+                $('.four-7plus li:eq(3) a').click(function () {
+                    $('#four-7plus').css('backgroundImage','url("images/compare_iphone7plus_rosegold_large.jpg")');
+                    $('.four-7plus  li:eq(3)').siblings().removeClass();
+                    $('.four-7plus  li:eq(3)').addClass('four-current');
+                })
+            //    iphone7
+                $('.four-7 li:eq(0) a').click(function () {
+                    $('#four-7').css('backgroundImage','url("images/compare_iphone7_black_large.jpg")');
+                    $('.four-7  li:eq(0)').siblings().removeClass();
+                    $('.four-7  li:eq(0)').addClass('four-current');
+                });
+                $('.four-7 li:eq(1) a').click(function () {
+                    $('#four-7').css('backgroundImage','url("images/compare_iphone7_silver_large.jpg")');
+                    $('.four-7  li:eq(1)').siblings().removeClass();
+                    $('.four-7  li:eq(1)').addClass('four-current');
+                })
+                $('.four-7 li:eq(2) a').click(function () {
+                    $('#four-7').css('backgroundImage','url("images/compare_iphone7_gold_large.jpg")');
+                    $('.four-7  li:eq(2)').siblings().removeClass();
+                    $('.four-7  li:eq(2)').addClass('four-current');
+                })
+                $('.four-7 li:eq(3) a').click(function () {
+                    $('#four-7').css('backgroundImage','url("images/compare_iphone7_rosegold_large.jpg")');
+                    $('.four-7  li:eq(3)').siblings().removeClass();
+                    $('.four-7  li:eq(3)').addClass('four-current');
+                })
+            //    6sp
+                $('.four-6plus li:eq(0) a').click(function () {
+                    $('#four-6plus').css('backgroundImage','url("images/compare_iphone6splus_spacegray_large.jpg")');
+                    $('.four-6plus  li:eq(0)').siblings().removeClass();
+                    $('.four-6plus  li:eq(0)').addClass('four-current');
+                });
+                $('.four-6plus li:eq(1) a').click(function () {
+                    $('#four-6plus').css('backgroundImage','url("images/compare_iphone6splus_silver_large.jpg")');
+                    $('.four-6plus  li:eq(1)').siblings().removeClass();
+                    $('.four-6plus  li:eq(1)').addClass('four-current');
+                })
+                $('.four-6plus li:eq(2) a').click(function () {
+                    $('#four-6plus').css('backgroundImage','url("images/compare_iphone6splus_gold_large.jpg")');
+                    $('.four-6plus  li:eq(2)').siblings().removeClass();
+                    $('.four-6plus  li:eq(2)').addClass('four-current');
+                })
+                $('.four-6plus li:eq(3) a').click(function () {
+                    $('#four-6plus').css('backgroundImage','url("images/compare_iphone6splus_rosegold_large.jpg")');
+                    $('.four-6plus  li:eq(3)').siblings().removeClass();
+                    $('.four-6plus  li:eq(3)').addClass('four-current');
+                })
+            });
+        </script>
+    </div>
+    <div class="section" id="five">
+        <div class="creatId">
+            <div class="title">创建您的ID</div>
+            <form action="" id="#form1">
+                <fieldset form="#form1" class="fie1">
+                    <legend>创建ID</legend>
+                        <label for="">
+                            姓名：<input type="text" name="userName" id="userName"/>
+                        </label>
+                        <label for="">
+                            出生日期：<input type="date" name="date">
+                        </label>
+                        <label for="">
+                            邮箱：<input type="email" name="email" id="email1"/>
+                        </label>
+                        <label for="">
+                            密码：<input type="password" name="pwd">
+                        </label>
+                        <label for="">
+                            确认密码：<input type="password" name="suerpwd">
+                        </label>
+                </fieldset>
+                <fieldset form="#form1" class="fie2">
+                    <label for="">
+                        安全问题：<select name="safe" id="">
+                        <option value="">你少年时代最好的朋友的叫什么名字？</option>
+                        <option value="">你的第一个宠物叫什么名字？</option>
+                        <option value="">你学会的第一道菜是什么？</option>
+                    </select> <br/>
+                        答案：<input type="text">
+                    </label>
+                    <label for="">
+                        电话号码：<input type="tel" name="tel">
+                    </label>
+                    <label for="" class="proving">
+                        验证方式：&nbsp;&nbsp;&nbsp;&nbsp;短信<input type="radio" name="yz" class="radio1" checked>&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;语音来电<input type="radio" name="yz" class="radio2">
+                    </label>
+                    <label for="">
+                        <br> 验证码：
+                        <input type="text">
+                    </label>
+                    <input type="submit" value="提交" id="submitall">
+                </fieldset>
+            </form >
+
+            <div class="column">
+                <div class="title">您的ID适用于Apple所有的服务</div>
+                <ul class="service">
+                    <li class="item1"></li>
+                    <li class="item2"></li>
+                    <li class="item3"></li>
+                    <li class="item4"></li>
+                    <li class="item5"></li>
+                    <li class="item6"></li>
+                    <li class="item7"></li>
+                    <li class="item8"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <dl>
+                    <dt>选购及了解</dt>
+                    <dd><a href="#">Mac</a></dd>
+                    <dd><a href="#">iPad</a></dd>
+                    <dd><a href="#">iPhone</a></dd>
+                    <dd><a href="#">Watch</a></dd>
+                    <dd><a href="#">Music</a></dd>
+                    <dd><a href="#">iTunes</a></dd>
+                    <dd><a href="#">iPod touch</a></dd>
+                    <dd><a href="#">配件</a></dd>
+                    <dd><a href="#">App Store充值卡</a></dd>
+                </dl>
+            <dl>
+                <dt>Apple Store 商店</dt>
+                <dd><a href="#">查找零售店</a></dd>
+                <dd><a href="#">Genius Bar 天才吧</a></dd>
+                <dd><a href="#">Today at Apple</a></dd>
+                <dd><a href="#">Apple 夏令营</a></dd>
+                <dd><a href="#">Field Trip 课外活动</a></dd>
+                <dd><a href="#">Apple Store App</a></dd>
+                <dd><a href="#">翻新和优惠</a></dd>
+                <dd><a href="#">分期付款</a></dd>
+                <dd><a href="#">Apple GiveBack 回馈计划</a></dd>
+                <dd><a href="#">订单状态</a></dd>
+            </dl>
+            <dl>
+                <dt>教育应用</dt>
+                <dd><a href="#">Apple与教育</a></dd>
+                <dd><a href="#">高校师生选购</a></dd>
+            </dl>
+            <dl>
+                <dt>商务应用</dt>
+                <dd><a href="#">Apple商务</a></dd>
+                <dd><a href="#">商务选购</a></dd>
+            </dl>
+            <dl>
+                <dt>账户</dt>
+                <dd><a href="#">管理你的Apple ID</a></dd>
+                <dd><a href="#">Apple Store 账户</a></dd>
+                <dd><a href="#">iCloud.com</a></dd>
+            </dl>
+            <dl>
+                <dt>Apple价值观</dt>
+                <dd><a href="#">辅助功能</a></dd>
+                <dd><a href="#">环境责任</a></dd>
+                <dd><a href="#">隐私</a></dd>
+                <dd><a href="#">供应商责任</a></dd>
+            </dl>
+            <dl>
+                <dt>关于Apple</dt>
+                <dd><a href="#">Newsroom</a></dd>
+                <dd><a href="#">Apple 管理员</a></dd>
+                <dd><a href="#">工作机会</a></dd>
+                <dd><a href="#">创造就业</a></dd>
+                <dd><a href="#">活动</a></dd>
+                <dd><a href="#">联系Apple</a></dd>
+            </dl>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script src="js/jquery.jcslider.min.js"></script>
+<script src="js/demo.js"></script>
+</body>
+</html>
